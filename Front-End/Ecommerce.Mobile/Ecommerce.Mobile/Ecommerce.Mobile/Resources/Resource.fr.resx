@@ -246,4 +246,55 @@
   <data name="PhSearch" xml:space="preserve">
     <value>Qu’est-ce que tu veux chercher ?!</value>
   </data>
+  <data name="MustAccount" xml:space="preserve">
+    <value>Vous devez avoir un compte pour ajouter des articles à la voiture d&amp;#39;achat !!</value>
+  </data>
+  <data name="UserAddresses_Title" xml:space="preserve">
+    <value>Adresses</value>
+  </data>
+  <data name="PhIndication" xml:space="preserve">
+    <value>Indications</value>
+  </data>
+  <data name="SaveCurrentLocationLbl" xml:space="preserve">
+    <value>Économisez avec l’emplacement actuel!</value>
+  </data>
+  <data name="wSaveLocation" xml:space="preserve">
+    <value>Enregistrer l'adresse</value>
+  </data>
+  <data name="PhCity" xml:space="preserve">
+    <value>Ville</value>
+  </data>
+  <data name="PhHouseNumber" xml:space="preserve">
+    <value>Maison/Bâtiment/Apt!</value>
+  </data>
+  <data name="PhProvince" xml:space="preserve">
+    <value>Province</value>
+  </data>
+  <data name="PhSector" xml:space="preserve">
+    <value>SECTEUR</value>
+  </data>
+  <data name="PhStreet" xml:space="preserve">
+    <value>Rue</value>
+  </data>
+  <data name="PhAddressName" xml:space="preserve">
+    <value>Nom de l'adresse</value>
+  </data>
+  <data name="AddressList_Title" xml:space="preserve">
+    <value>Mes adresses</value>
+  </data>
+  <data name="AddressTabbedPage_Title" xml:space="preserve">
+    <value>Adresses</value>
+  </data>
+  <data name="tBtnAddNewAddress" xml:space="preserve">
+    <value>Ajouter une adresse</value>
+  </data>
+  <data name="TimeOutMessage" xml:space="preserve">
+    <value>Impossible de se connecter au serveur. S'il vous plaît essayer à nouveau!</value>
+  </data>
+  <data name="CreateAddressMsg" xml:space="preserve">
+    <value>L'adresse a bien été créée</value>
+  </data>
+  <data name="UpdateAddressMsg" xml:space="preserve">
+    <value>L'adresse a bien été modifiée</value>
+  </data>
 </root>

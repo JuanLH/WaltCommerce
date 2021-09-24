@@ -1,14 +1,17 @@
-﻿using Common.Models.ProductCategories;
+using Common.Models.ProductCategories;
 using Common.Models.Products;
+using Common.Models.Token;
+using Ecommerce.Mobile.Helpers;
+using Ecommerce.Mobile.Helpers.I18n;
 using Ecommerce.Mobile.Services;
-using NHibernate.Linq;
+using Newtonsoft.Json;
 using Prism.Commands;
 using Prism.Navigation;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace Ecommerce.Mobile.ViewModels
 {
@@ -21,8 +24,9 @@ namespace Ecommerce.Mobile.ViewModels
         private DelegateCommand _categoryCommand;
         private ProductCategory _categorySelected;
         private bool _isBusy;
-        private DelegateCommand _filterCommand;
-        private string _critery;
+        private int _itemValue;
+        private DelegateCommand _viewCartCommand;
+
 
         public ProductPageViewModel(INavigationService navigationService, IApiServices apiServices) : base(navigationService)
         {
@@ -33,16 +37,17 @@ namespace Ecommerce.Mobile.ViewModels
             FullProductList = new ObservableCollection<Product>();
             IsBusy = true;
 
-
         }
 
         public DelegateCommand ViewProductCommand => _viewProductCommand ?? (_viewProductCommand = new DelegateCommand(ViewProductDetail));        
         public DelegateCommand CategoryCommand => _categoryCommand ?? (_categoryCommand = new DelegateCommand(CategoryFilter));
-        //public DelegateCommand NavigateToDetail => _navigateToDetail ?? (_navigateToDetail = new DelegateCommand(OpenDetail));
         public DelegateCommand<string> FilterCommand => new DelegateCommand<string>((string text) =>
         {
             FIlterData(text);
         });
+
+        public DelegateCommand ViewCartCommand => _viewCartCommand ?? (_viewCartCommand = new DelegateCommand(OpenCartDetail));
+
 
         public ObservableCollection<ProductCategory> CategoryModelList { get; set; }
         public ObservableCollection<Product> ProductList { get; set; }
@@ -52,6 +57,12 @@ namespace Ecommerce.Mobile.ViewModels
         {
             get => _selectedProduct;
             set => SetProperty(ref _selectedProduct, value);
+        }
+
+        public int ItemValue
+        {
+            get => _itemValue;
+            set => SetProperty(ref _itemValue, value);
         }
 
         public ProductCategory CategorySelected
@@ -72,15 +83,8 @@ namespace Ecommerce.Mobile.ViewModels
            
             var parameters = new NavigationParameters();
             parameters.Add("Product", SelectedProduct);
-            //var Category = CategoryModelList.Where(c=>c.Id == SelectedProduct.ProductCategory.Id);
-
-            //var CategoryModel = new ProductCategory()
-            //{
-            //    Identificator = Category.FirstOrDefault().Identificator,
-            //    Description = Category.FirstOrDefault().Description
-            //};
-
-            //parameters.Add("Category", CategoryModel);
+            parameters.Add("AllProducts", FullProductList);
+            
            await _navigationService.NavigateAsync("ProductDetailPage", parameters);                                   
         }
 
@@ -96,21 +100,24 @@ namespace Ecommerce.Mobile.ViewModels
             {
                 if (response.Message == "")
                 {
-                    response.Message = "No se pudo conectar con el Servidor por favor intente más tarde.";
+                    response.Message = Messages.ConnectionError;
                 }
 
 
-                await Prism.PrismApplicationBase.Current.MainPage.DisplayAlert("Información", response.Message.ToString(), "Aceptar");
+                await App.Current.MainPage.DisplayAlert(Messages.Info, response.Message, Messages.Accept);
                 await _navigationService.GoBackToRootAsync();
                 return;
             }
 
-            var ListProducts = (List<ProductCategory>)response.Result;
-            ListProducts.ForEach(x => CategoryModelList.Add(x));
-            
-            //var list = ListProducts.Select(x => x.Products).ToList();            
+            var ListCategories = (List<ProductCategory>)response.Result;
+            CategoryModelList.Add(new ProductCategory() { Id = 0, Description = Messages.CategoryAll, IsDeleted = false, Identificator = "ALL" });
+            ListCategories.ForEach(x => CategoryModelList.Add(x));
+
+            //var list = ListCategories.Select(x => x.Products).ToList();            
             foreach (ProductCategory x in CategoryModelList)
             {
+                if (x.Id == 0)
+                    continue;
 
                 foreach (Product y in x.Products)
                 {
@@ -128,6 +135,19 @@ namespace Ecommerce.Mobile.ViewModels
             ProductList.Clear();
             foreach (ProductCategory x in CategoryModelList)
             {
+                if (CategorySelected.Id == 0) {
+
+                    if (x.Id == 0)
+                        continue;
+
+                    foreach (var Product in x.Products)
+                    {
+                        ProductList.Add(Product);
+                    }
+
+                    continue;
+                }
+                
                 if (x.Id == CategorySelected.Id) 
                 {
                     foreach (var Product in x.Products)
@@ -157,7 +177,14 @@ namespace Ecommerce.Mobile.ViewModels
             SelectedProduct = null;
             if (parameters.GetNavigationMode() != Prism.Navigation.NavigationMode.Back)
                 await GetProducts();
+
+            ItemValue = Preferences.Get(Settings.ItemsCart, 0);
+
         }
 
+        private async void OpenCartDetail()
+        {
+            await _navigationService.NavigateAsync("CartDetailPage");
+        }
     }
 }

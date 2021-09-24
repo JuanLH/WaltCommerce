@@ -70,6 +70,24 @@ namespace Ecommerce.Mobile.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to My Addresses.
+        /// </summary>
+        public static string AddressList_Title {
+            get {
+                return ResourceManager.GetString("AddressList_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Addresses.
+        /// </summary>
+        public static string AddressTabbedPage_Title {
+            get {
+                return ResourceManager.GetString("AddressTabbedPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to log out?.
         /// </summary>
         public static string AskLogOut {
@@ -88,6 +106,15 @@ namespace Ecommerce.Mobile.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All.
+        /// </summary>
+        public static string categoryAll {
+            get {
+                return ResourceManager.GetString("categoryAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Close.
         /// </summary>
         public static string Close {
@@ -97,11 +124,29 @@ namespace Ecommerce.Mobile.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Address Created Successfully!.
+        /// </summary>
+        public static string CreateAddressMsg {
+            get {
+                return ResourceManager.GetString("CreateAddressMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add To Cart.
         /// </summary>
         public static string DpAddToCart {
             get {
                 return ResourceManager.GetString("DpAddToCart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Buy throut Whatsapp.
+        /// </summary>
+        public static string DpAskWhatsapp {
+            get {
+                return ResourceManager.GetString("DpAskWhatsapp", resourceCulture);
             }
         }
         
@@ -241,11 +286,47 @@ namespace Ecommerce.Mobile.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to View Products.
+        /// </summary>
+        public static string MenuOptProducts {
+            get {
+                return ResourceManager.GetString("MenuOptProducts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Profile.
         /// </summary>
         public static string MenuOptProfile {
             get {
                 return ResourceManager.GetString("MenuOptProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delivery.
+        /// </summary>
+        public static string Method_Delivery {
+            get {
+                return ResourceManager.GetString("Method_Delivery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pick up.
+        /// </summary>
+        public static string Method_Pickup {
+            get {
+                return ResourceManager.GetString("Method_Pickup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must have an account to add items to the shopping car!.
+        /// </summary>
+        public static string MustAccount {
+            get {
+                return ResourceManager.GetString("MustAccount", resourceCulture);
             }
         }
         
@@ -295,11 +376,56 @@ namespace Ecommerce.Mobile.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Proceed to Buy.
+        /// </summary>
+        public static string PayButtontxt {
+            get {
+                return ResourceManager.GetString("PayButtontxt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cash.
+        /// </summary>
+        public static string PayM_Cash {
+            get {
+                return ResourceManager.GetString("PayM_Cash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bank Transfer.
+        /// </summary>
+        public static string PayM_Transfer {
+            get {
+                return ResourceManager.GetString("PayM_Transfer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Address Name.
+        /// </summary>
+        public static string PhAddressName {
+            get {
+                return ResourceManager.GetString("PhAddressName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cell Phone.
         /// </summary>
         public static string PhCellPhone {
             get {
                 return ResourceManager.GetString("PhCellPhone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to City.
+        /// </summary>
+        public static string PhCity {
+            get {
+                return ResourceManager.GetString("PhCity", resourceCulture);
             }
         }
         
@@ -327,6 +453,24 @@ namespace Ecommerce.Mobile.Resources {
         public static string PhFirstName {
             get {
                 return ResourceManager.GetString("PhFirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to House/Building/Apt.
+        /// </summary>
+        public static string PhHouseNumber {
+            get {
+                return ResourceManager.GetString("PhHouseNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Indications.
+        /// </summary>
+        public static string PhIndication {
+            get {
+                return ResourceManager.GetString("PhIndication", resourceCulture);
             }
         }
         
@@ -367,11 +511,38 @@ namespace Ecommerce.Mobile.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to What do yo want to search?.
+        ///   Looks up a localized string similar to Province.
+        /// </summary>
+        public static string PhProvince {
+            get {
+                return ResourceManager.GetString("PhProvince", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What are you looking for?.
         /// </summary>
         public static string PhSearch {
             get {
                 return ResourceManager.GetString("PhSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sector.
+        /// </summary>
+        public static string PhSector {
+            get {
+                return ResourceManager.GetString("PhSector", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Street.
+        /// </summary>
+        public static string PhStreet {
+            get {
+                return ResourceManager.GetString("PhStreet", resourceCulture);
             }
         }
         
@@ -385,11 +556,65 @@ namespace Ecommerce.Mobile.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to How do you like to pay the order?.
+        /// </summary>
+        public static string QPayOrder {
+            get {
+                return ResourceManager.GetString("QPayOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How do you like to receive the order?.
+        /// </summary>
+        public static string QReciveOrder {
+            get {
+                return ResourceManager.GetString("QReciveOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save With Current Location.
+        /// </summary>
+        public static string SaveCurrentLocationLbl {
+            get {
+                return ResourceManager.GetString("SaveCurrentLocationLbl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sign In.
         /// </summary>
         public static string SignIn {
             get {
                 return ResourceManager.GetString("SignIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Address.
+        /// </summary>
+        public static string tBtnAddNewAddress {
+            get {
+                return ResourceManager.GetString("tBtnAddNewAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not connect to the Server please try again later..
+        /// </summary>
+        public static string TimeOutMessage {
+            get {
+                return ResourceManager.GetString("TimeOutMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order Summary.
+        /// </summary>
+        public static string TSummaryOrder {
+            get {
+                return ResourceManager.GetString("TSummaryOrder", resourceCulture);
             }
         }
         
@@ -408,6 +633,24 @@ namespace Ecommerce.Mobile.Resources {
         public static string TtRegisUser {
             get {
                 return ResourceManager.GetString("TtRegisUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Address Updated Successfully!.
+        /// </summary>
+        public static string UpdateAddressMsg {
+            get {
+                return ResourceManager.GetString("UpdateAddressMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Record.
+        /// </summary>
+        public static string UserAddresses_Title {
+            get {
+                return ResourceManager.GetString("UserAddresses_Title", resourceCulture);
             }
         }
         
@@ -444,6 +687,15 @@ namespace Ecommerce.Mobile.Resources {
         public static string wSave {
             get {
                 return ResourceManager.GetString("wSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save Address.
+        /// </summary>
+        public static string wSaveLocation {
+            get {
+                return ResourceManager.GetString("wSaveLocation", resourceCulture);
             }
         }
     }

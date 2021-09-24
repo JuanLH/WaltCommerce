@@ -23,6 +23,10 @@ using DataLayer.ContextExtension.Roles;
 using DataLayer.ContextExtension.Users;
 using Common.Models.Products;
 using Microsoft.EntityFrameworkCore;
+using Common.Models.UsersAddresses;
+using DataLayer.ContextExtension.UserAddresses;
+using Common.Models.Orders;
+using Common.Models.OrderDetails;
 
 namespace DataLayer.Contexts
 {
@@ -47,6 +51,7 @@ namespace DataLayer.Contexts
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new BuyCartConfiguration());
             modelBuilder.ApplyConfiguration(new BuyCartDetailConfiguration());
+            modelBuilder.ApplyConfiguration(new UserAddressesConfiguration());
         }
 
         public DbSet<User> Users { get; set; }
@@ -61,5 +66,10 @@ namespace DataLayer.Contexts
         public DbSet<Product> Products { get; set; }
         public DbSet<BuyCart> BuyCarts { get; set; }
         public DbSet<BuyCartDetail> BuyCartDetails { get; set; }
+        public DbSet<UserAddress> UserAddresses { get; set; }
+        public DbSet<Order> Order { get; set; }
+        public DbSet<OrderDetail> OrderDetail { get; set; }
+
+
     }
 }

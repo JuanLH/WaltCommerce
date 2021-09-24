@@ -3,11 +3,10 @@
     x:Class="Ecommerce.Mobile.Views.ProductDetailPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:i18n="clr-namespace:Ecommerce.Mobile.Helpers.I18n"
     xmlns:prism="http://prismlibrary.com"
     prism:ViewModelLocator.AutowireViewModel="True">
-
-
 
     <ScrollView>
         <StackLayout Padding="5,2,5,2">
@@ -35,13 +34,12 @@
                                 VerticalOptions="StartAndExpand">
                                 <StackLayout>
 
-                                    <Image
+                                    <ffimageloading:CachedImage
                                         Aspect="Fill"
                                         HeightRequest="350"
                                         HorizontalOptions="Center"
                                         Source="{Binding ImageUrl}"
                                         WidthRequest="350" />
-
 
                                 </StackLayout>
                             </Frame>
@@ -50,8 +48,66 @@
                 </CarouselView.ItemTemplate>
             </CarouselView>
 
+            <CollectionView
+                x:Name="colorList"
+                HeightRequest="50"
+                HorizontalScrollBarVisibility="Never"
+                ItemsSource="{Binding SimilarProducts}"
+                SelectedItem="{Binding SelectedColor}"
+                SelectionChangedCommand="{Binding ChangeColorCommand}"
+                SelectionMode="Single"
+                VerticalOptions="Start">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="0" Orientation="Horizontal" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
 
-            <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto,Auto,Auto,Auto,Auto">
+                        <Grid Margin="0,0,0,0" Padding="0,0,0,0">
+
+                            <Frame
+                                Margin="0,0,5,0"
+                                HeightRequest="50"
+                                WidthRequest="60">
+                                <ImageButton
+                                    Padding="0"
+                                    Aspect="Fill"
+                                    BackgroundColor="{Binding ProductColor.HexCode}"
+                                    CornerRadius="60"
+                                    HeightRequest="50"
+                                    HorizontalOptions="Start"
+                                    Source="{Binding ProductColor.ImageColorUrl}"
+                                    VerticalOptions="Start"
+                                    WidthRequest="60" />
+                            </Frame>
+
+                            <Grid.Resources>
+                                <Style TargetType="Grid">
+                                    <Setter Property="VisualStateManager.VisualStateGroups">
+                                        <VisualStateGroupList>
+                                            <VisualStateGroup x:Name="CommonStates">
+                                                <VisualState x:Name="Normal" />
+                                                <VisualState x:Name="Selected">
+                                                    <VisualState.Setters>
+                                                        <Setter Property="BackgroundColor" Value="Transparent" />
+                                                    </VisualState.Setters>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                        </VisualStateGroupList>
+                                    </Setter>
+                                </Style>
+                            </Grid.Resources>
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Grid
+                ColumnDefinitions="Auto, *"
+                ColumnSpacing="40"
+                RowDefinitions="Auto,Auto,Auto"
+                VerticalOptions="End">
                 <Label
                     Grid.Row="0"
                     Grid.Column="0"
@@ -89,26 +145,64 @@
                     </Label.FormattedText>
                 </Label>
 
-                <Label
-                    Grid.Row="3"
-                    Grid.Column="0"
-                    FontAttributes="Bold"
-                    FontSize="Medium"
-                    Text="{i18n:Translate DpQuatity}" />
+
+            </Grid>
+
+            <Grid
+                x:Name="QuantitySelect"
+                HorizontalOptions="StartAndExpand"
+                VerticalOptions="End">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30*" />
+                    <ColumnDefinition Width="50*" />
+                    <ColumnDefinition Width="20*" />
+                </Grid.ColumnDefinitions>
+
 
                 <Label
-                    Grid.Row="3"
-                    Grid.Column="1"
-                    BindingContext="{x:Reference QtyStepper}"
-                    FontAttributes="Bold"
-                    FontSize="Medium"
-                    Text="{Binding Value}" />
-                <Stepper
-                    x:Name="QtyStepper"
-                    Grid.Row="4"
                     Grid.Column="0"
+                    FontAttributes="Bold"
+                    FontSize="18"
                     HorizontalOptions="Start"
-                    Increment="1" />
+                    Text="Quantity"
+                    VerticalOptions="Start" />
+
+
+                <Frame
+                    Grid.Column="1"
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    BorderColor="Black"
+                    CornerRadius="25"
+                    HasShadow="False"
+                    HeightRequest="50"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Center" />
+
+                <Button
+                    Grid.Column="1"
+                    Margin="10,0,0,0"
+                    Command="{Binding DecreaseButtonCmd}"
+                    HorizontalOptions="Start"
+                    Style="{StaticResource QuantityButton}"
+                    Text="-"
+                    VerticalOptions="Center" />
+                <Button
+                    Grid.Column="1"
+                    Margin="0,0,10,0"
+                    Command="{Binding IncreaseButtonCmd}"
+                    HorizontalOptions="End"
+                    Style="{StaticResource QuantityButton}"
+                    Text="+"
+                    VerticalOptions="Center" />
+
+                <Label
+                    Grid.Column="1"
+                    HorizontalOptions="Center"
+                    Text="{Binding Qty}"
+                    VerticalOptions="Center" />
+
             </Grid>
 
 
@@ -116,7 +210,7 @@
                 <Button
                     Grid.Row="0"
                     BackgroundColor="Navy"
-                    Command="{Binding AddToCartCommand}"
+                    Command="{Binding ShoppingCarCommand}"
                     CornerRadius="10"
                     FontSize="Medium"
                     Text="{i18n:Translate DpAddToCart}"
@@ -126,10 +220,10 @@
                 <Button
                     Grid.Row="1"
                     BackgroundColor="Navy"
-                    Command="{Binding AddToCartCommand}"
+                    Command="{Binding AskWhatsappCommand}"
                     CornerRadius="10"
                     FontSize="Medium"
-                    Text="Buy Now"
+                    Text="{i18n:Translate DpAskWhatsapp}"
                     TextColor="White"
                     VerticalOptions="EndAndExpand" />
             </Grid>

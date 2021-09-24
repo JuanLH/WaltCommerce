@@ -1,6 +1,7 @@
 ﻿using Common.Models.BuyCarts;
 using Common.Models.Core;
 using Common.Models.Products;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Common.Models.BuyCartDetails
 {
@@ -10,6 +11,11 @@ namespace Common.Models.BuyCartDetails
         public int BuyCartId { get; set; }
         public Product Product { get; set; }
         public int ProductId { get; set; }
-        public int quantity { get; set; }
+        public int Quantity { get; set; }
+
+        [NotMapped]
+        public float Total {
+            get => Product.Price * Quantity; 
+        }
     }
 }

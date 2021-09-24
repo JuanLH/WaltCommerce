@@ -120,17 +120,32 @@
   <data name="Accept" xml:space="preserve">
     <value>Accept</value>
   </data>
+  <data name="AddressList_Title" xml:space="preserve">
+    <value>My Addresses</value>
+  </data>
+  <data name="AddressTabbedPage_Title" xml:space="preserve">
+    <value>Addresses</value>
+  </data>
   <data name="AskLogOut" xml:space="preserve">
     <value>Are you sure you want to log out?</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="categoryAll" xml:space="preserve">
+    <value>All</value>
+  </data>
   <data name="Close" xml:space="preserve">
     <value>Close</value>
   </data>
+  <data name="CreateAddressMsg" xml:space="preserve">
+    <value>Address Created Successfully!</value>
+  </data>
   <data name="DpAddToCart" xml:space="preserve">
     <value>Add To Cart</value>
+  </data>
+  <data name="DpAskWhatsapp" xml:space="preserve">
+    <value>Buy throut Whatsapp</value>
   </data>
   <data name="DpCategory" xml:space="preserve">
     <value>Category</value>
@@ -177,8 +192,20 @@
   <data name="MenuOptOrders" xml:space="preserve">
     <value>Orders</value>
   </data>
+  <data name="MenuOptProducts" xml:space="preserve">
+    <value>View Products</value>
+  </data>
   <data name="MenuOptProfile" xml:space="preserve">
     <value>Profile</value>
+  </data>
+  <data name="Method_Delivery" xml:space="preserve">
+    <value>Delivery</value>
+  </data>
+  <data name="Method_Pickup" xml:space="preserve">
+    <value>Pick up</value>
+  </data>
+  <data name="MustAccount" xml:space="preserve">
+    <value>You must have an account to add items to the shopping car!</value>
   </data>
   <data name="MustFillFields" xml:space="preserve">
     <value>You must complete the fields in order to process the request.</value>
@@ -195,8 +222,23 @@
   <data name="Option_IdType" xml:space="preserve">
     <value>Select your Personal Id Type</value>
   </data>
+  <data name="PayButtontxt" xml:space="preserve">
+    <value>Proceed to Buy</value>
+  </data>
+  <data name="PayM_Cash" xml:space="preserve">
+    <value>Cash</value>
+  </data>
+  <data name="PayM_Transfer" xml:space="preserve">
+    <value>Bank Transfer</value>
+  </data>
+  <data name="PhAddressName" xml:space="preserve">
+    <value>Address Name</value>
+  </data>
   <data name="PhCellPhone" xml:space="preserve">
     <value>Cell Phone</value>
+  </data>
+  <data name="PhCity" xml:space="preserve">
+    <value>City</value>
   </data>
   <data name="PhConfirmPassword" xml:space="preserve">
     <value>Confirm Password</value>
@@ -206,6 +248,12 @@
   </data>
   <data name="PhFirstName" xml:space="preserve">
     <value>First Name</value>
+  </data>
+  <data name="PhHouseNumber" xml:space="preserve">
+    <value>House/Building/Apt</value>
+  </data>
+  <data name="PhIndication" xml:space="preserve">
+    <value>Indications</value>
   </data>
   <data name="PhLastName" xml:space="preserve">
     <value>Last Name</value>
@@ -219,20 +267,53 @@
   <data name="PhPersonalId" xml:space="preserve">
     <value>Personal Id</value>
   </data>
+  <data name="PhProvince" xml:space="preserve">
+    <value>Province</value>
+  </data>
   <data name="PhSearch" xml:space="preserve">
-    <value>What do yo want to search?</value>
+    <value>What are you looking for?</value>
+  </data>
+  <data name="PhSector" xml:space="preserve">
+    <value>Sector</value>
+  </data>
+  <data name="PhStreet" xml:space="preserve">
+    <value>Street</value>
   </data>
   <data name="PhTelephone" xml:space="preserve">
     <value>Telephone</value>
   </data>
+  <data name="QPayOrder" xml:space="preserve">
+    <value>How do you like to pay the order?</value>
+  </data>
+  <data name="QReciveOrder" xml:space="preserve">
+    <value>How do you like to receive the order?</value>
+  </data>
+  <data name="SaveCurrentLocationLbl" xml:space="preserve">
+    <value>Save With Current Location</value>
+  </data>
   <data name="SignIn" xml:space="preserve">
     <value>Sign In</value>
+  </data>
+  <data name="tBtnAddNewAddress" xml:space="preserve">
+    <value>Add Address</value>
+  </data>
+  <data name="TimeOutMessage" xml:space="preserve">
+    <value>Could not connect to the Server please try again later.</value>
+  </data>
+  <data name="TSummaryOrder" xml:space="preserve">
+    <value>Order Summary</value>
   </data>
   <data name="TtLogin" xml:space="preserve">
     <value>Log In</value>
   </data>
   <data name="TtRegisUser" xml:space="preserve">
     <value>Add User</value>
+  </data>
+  <data name="UpdateAddressMsg" xml:space="preserve">
+    <value>Address Updated Successfully!</value>
+  </data>
+  <data name="UserAddresses_Title" xml:space="preserve">
+    <value>Record</value>
   </data>
   <data name="UserCreated" xml:space="preserve">
     <value>User was created successfully !</value>
@@ -245,5 +326,8 @@
   </data>
   <data name="wSave" xml:space="preserve">
     <value>Save</value>
+  </data>
+  <data name="wSaveLocation" xml:space="preserve">
+    <value>Save Address</value>
   </data>
 </root>

@@ -246,4 +246,55 @@
   <data name="PhSearch" xml:space="preserve">
     <value>¿Qué deseas buscar?</value>
   </data>
+  <data name="MustAccount" xml:space="preserve">
+    <value>¡Debe tener una cuenta para agregar artículos al carro de compras!</value>
+  </data>
+  <data name="UserAddresses_Title" xml:space="preserve">
+    <value>Direcciones</value>
+  </data>
+  <data name="PhIndication" xml:space="preserve">
+    <value>Indicaciones</value>
+  </data>
+  <data name="SaveCurrentLocationLbl" xml:space="preserve">
+    <value>¡Ahorre con la ubicación actual!</value>
+  </data>
+  <data name="wSaveLocation" xml:space="preserve">
+    <value>Guardar la dirección</value>
+  </data>
+  <data name="PhCity" xml:space="preserve">
+    <value>Ciudad</value>
+  </data>
+  <data name="PhHouseNumber" xml:space="preserve">
+    <value>Casa/Edificio/Apartamento</value>
+  </data>
+  <data name="PhProvince" xml:space="preserve">
+    <value>Provincia</value>
+  </data>
+  <data name="PhSector" xml:space="preserve">
+    <value>sector</value>
+  </data>
+  <data name="PhStreet" xml:space="preserve">
+    <value>Calle</value>
+  </data>
+  <data name="PhAddressName" xml:space="preserve">
+    <value>Nombre de dirección</value>
+  </data>
+  <data name="AddressList_Title" xml:space="preserve">
+    <value>Mis direcciones</value>
+  </data>
+  <data name="AddressTabbedPage_Title" xml:space="preserve">
+    <value>Direcciones</value>
+  </data>
+  <data name="tBtnAddNewAddress" xml:space="preserve">
+    <value>Agregar dirección</value>
+  </data>
+  <data name="TimeOutMessage" xml:space="preserve">
+    <value>¡No se pudo conectar al servidor API! Inténtalo de nuevo más tarde.</value>
+  </data>
+  <data name="CreateAddressMsg" xml:space="preserve">
+    <value>Dirección creada correctamente</value>
+  </data>
+  <data name="UpdateAddressMsg" xml:space="preserve">
+    <value>Dirección actualizada correctamente</value>
+  </data>
 </root>

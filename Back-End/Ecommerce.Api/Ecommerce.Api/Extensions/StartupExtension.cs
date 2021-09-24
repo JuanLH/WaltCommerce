@@ -3,6 +3,9 @@ using BussinesLayer.Interfaces.Auth;
 using BussinesLayer.Interfaces.Brands;
 using BussinesLayer.Interfaces.BuyCartDetails;
 using BussinesLayer.Interfaces.BuyCarts;
+using BussinesLayer.Interfaces.Mails;
+using BussinesLayer.Interfaces.OrderDetails;
+using BussinesLayer.Interfaces.Orders;
 using BussinesLayer.Interfaces.PersonsTypeCategories;
 using BussinesLayer.Interfaces.Products;
 using BussinesLayer.Interfaces.ProductsCategories;
@@ -11,11 +14,15 @@ using BussinesLayer.Interfaces.ProductsImages;
 using BussinesLayer.Interfaces.ProductsSizes;
 using BussinesLayer.Interfaces.ProductsSpecifications;
 using BussinesLayer.Interfaces.Roles;
+using BussinesLayer.Interfaces.UserAddresses;
 using BussinesLayer.Interfaces.Users;
 using BussinesLayer.Services.Auth;
 using BussinesLayer.Services.Brands;
 using BussinesLayer.Services.BuyCartDetails;
 using BussinesLayer.Services.BuyCarts;
+using BussinesLayer.Services.Mails;
+using BussinesLayer.Services.OrderDetails;
+using BussinesLayer.Services.Orders;
 using BussinesLayer.Services.PersonsTypeCategories;
 using BussinesLayer.Services.Products;
 using BussinesLayer.Services.ProductsCategories;
@@ -24,6 +31,7 @@ using BussinesLayer.Services.ProductsImages;
 using BussinesLayer.Services.ProductsSizes;
 using BussinesLayer.Services.ProductsSpecifications;
 using BussinesLayer.Services.Roles;
+using BussinesLayer.Services.UserAddresses;
 using BussinesLayer.Services.Users;
 using DataLayer.Contexts;
 using DataLayer.Settings;
@@ -34,7 +42,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.SwaggerUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,8 +59,6 @@ namespace Ecommerce.Api.Extensions
             services.AddDbContext<MainDbContext>(opt =>
                 opt.UseNpgsql(configuration.GetConnectionString("MainDb")));
 
-            //services.AddDbContext<MainDbContext>(opt =>
-            //  opt.UseSqlServer(configuration.GetConnectionString("MainDb")));
         }
 
         public static void ServicesImplementations(this IServiceCollection services)
@@ -72,11 +77,17 @@ namespace Ecommerce.Api.Extensions
             services.AddTransient<IProductsSpecificationsService, ProductsSpecificationsService>();
             services.AddTransient<IBuyCartsService, BuyCartsService>();
             services.AddTransient<IBuyCartDetailsService, BuyCartDetailsService>();
+            services.AddTransient<IUserAddressesService, UserAddressesService>();
+            services.AddTransient<IOrderService, OrderService>();
+            services.AddTransient<IOrderDetailService, OrderDetailService>();
+            services.AddTransient<IMailService, MailService>();
+
+
+
         }
 
         public static void ConfigureAutomapper(this IServiceCollection services)
         {
-            //services.AddAutoMapper(typeof(Startup));
             var config = new MapperConfiguration(cfg =>
             {
                 var mainAssembly = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(c => c.GetName().Name == "DataLayer");
@@ -134,7 +145,6 @@ namespace Ecommerce.Api.Extensions
             {
                 opt.SwaggerEndpoint("/swagger/v1/swagger.json", "Ecommerce Api");
                 opt.RoutePrefix = "swagger";
-                //opt.DocExpansion(DocExpansion.None);
             });
         }
 
@@ -163,5 +173,11 @@ namespace Ecommerce.Api.Extensions
             .AddNewtonsoftJson(options =>
             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
         }
+
+        public static void ConfigureMail(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.Configure<MailSettings>(configuration.GetSection(nameof(MailSettings)));
+        }
+
     }
 }

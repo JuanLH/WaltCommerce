@@ -27,6 +27,7 @@ namespace Ecommerce.Api
             services.ConfigureAutomapper();
             services.ConfigureSwagger();
             services.ConfigureAddControllers();
+            services.ConfigureMail(Configuration);
 
         }
 
@@ -40,6 +41,11 @@ namespace Ecommerce.Api
             }
 
             app.UseHttpsRedirection();
+
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
 
             app.UseRouting();
 

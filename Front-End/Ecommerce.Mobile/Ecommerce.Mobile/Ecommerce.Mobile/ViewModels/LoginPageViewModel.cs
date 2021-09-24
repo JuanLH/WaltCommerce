@@ -30,6 +30,15 @@ namespace Ecommerce.Mobile.ViewModels
             _apiServices = apiServices;            
             _isEnabled = true;
             Title = Messages.TtRegisUser;
+            RemoveCache();
+        }
+
+        private void RemoveCache()
+        {
+            Preferences.Remove(Settings.FullName);
+            Preferences.Remove(Settings.Token);
+            Preferences.Remove(Settings.UserData);
+            Preferences.Remove(Settings.ItemsCart);
         }
 
         public DelegateCommand UserRegisterCommand => _userRegisterCommand ?? (_userRegisterCommand = new DelegateCommand(RegisterUser));
@@ -109,6 +118,7 @@ namespace Ecommerce.Mobile.ViewModels
             Preferences.Set(Settings.FullName, $"{access.User.FirstName} {access.User.LastName}"); 
             Preferences.Set(Settings.Token, access.Token);
             Preferences.Set(Settings.UserData, JsonConvert.SerializeObject(access));
+            await Utilities.GetCountItemsCartDetail(_apiServices, access);
 
             await _navigationService.NavigateAsync("/MenuPage/NavigationPage/ProductPage");
         }
